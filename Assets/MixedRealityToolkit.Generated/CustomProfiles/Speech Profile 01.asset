@@ -23,3 +23,17 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Create
+    keyCode: 283
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Destroy
+    keyCode: 284
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

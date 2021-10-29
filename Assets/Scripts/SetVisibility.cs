@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class SetVisibility : MonoBehaviour
 {
-    public void DestroyObject()
+    [SerializeField] private GameObject pdfMenu;
+
+    public void ActiveBool()
     {
-        Destroy(gameObject);
+        // Set the object visible or not
+        if (pdfMenu.activeInHierarchy)
+        {
+            pdfMenu.SetActive(false);
+        }
+        else
+        {
+            pdfMenu.SetActive(true);
+        }
     }
 }

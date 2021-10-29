@@ -8,8 +8,7 @@ using UnityEngine;
 
 public class GetUserPosition : MonoBehaviour
 {
-    private IMixedRealityPointer headRay;
-    [SerializeField] private Material highlight;
+    public static IMixedRealityPointer headRay;
 
     private void Update()
     {
@@ -25,30 +24,11 @@ public class GetUserPosition : MonoBehaviour
                     }
                     if (p.Result != null)
                     {
-                        var startPoint = p.Position;
-                        var endPoint = p.Result.Details.Point;
-                        var hitObject = p.Result.Details.Object;
+                        Debug.Log(p.Position.ToString());
                         headRay = p;
-
-                        // Testing the pointer
-                        if (hitObject)
-                        {
-                            var sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                            Renderer rend = sphere.GetComponent<Renderer>();
-                            rend.material = highlight;
-                            sphere.transform.localScale = Vector3.one * 0.01f;
-                            sphere.transform.position = p.Position;
-                        }
                     }
                 }
             }
         }
-    }
-
-    public void SetObjectNearUser()
-    {
-        var position  = headRay.Position;
-
-        gameObject.transform.position = new Vector3(headRay.Position.x, headRay.Position.y, headRay.Position.z + (float)0.65);
     }
 }
